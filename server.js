@@ -1,24 +1,27 @@
 //================ REQUIRE PACKAGES ================
 
-const express = require("express");
-const logger = require("morgan");
-const mongoose = require("mongoose");
-const axios = require("axios");
-const cherrio = require("cheerio"); 
-const app = express();
+//basic dependencies
+var express = require("express");
+var logger = require("morgan");
+var mongoose = require("mongoose");
 
-//================ MODELS + INITIALIZATION ================
+//scraping tools
+var axios = require("axios");
+var cheerio = require("cheerio"); 
 
-const db =  require("./models");
+//front-end requirement
+var exphbs = require("express-handlebars");
 
+//================ INITIALIZATION + MIDDLEWARE ================
 
-//================ HEROKU DEPLOYMENT ================
+//require all models
+var db = require("./models");
 
-const PORT = process.env.PORT || 3000;
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/scrape";
-mongoose.connect(MONGODB_URI);
+//assign the port {heroku required}
+var PORT = process.env.PORT || 3000;
 
-//================ MIDDLEWARE ================
+//initialize Express
+var app = express();
 
 //use morgan logger for logging requests
 app.use(logger("dev"));
@@ -29,6 +32,25 @@ app.use(express.json());
 
 //make public a static folder
 app.use(express.static("./public"));
+
+//use handlebars in the app
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
+//================ DB CONNECTION {heroku required} ================
+
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/scrape";
+mongoose.connect(MONGODB_URI);
+
+//================ ROUTES ================
+
+//GET route retrieves all db Articles
+
+//GET route to scrape website
+
+//GET route retrieves an aritcle by ID
+
+//POST route for saving/updating a note
 
 //================ SERVER STARTS ================
 

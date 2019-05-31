@@ -16,6 +16,7 @@ var exphbs = require("express-handlebars");
 
 //require all models
 var db = require("./models");
+console.log(db);
 
 //assign the port {heroku required}
 var PORT = process.env.PORT || 3000;
@@ -40,7 +41,6 @@ app.set("view engine", "handlebars");
 //================ DB CONNECTION {heroku required} ================
 
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/scrape";
-//mongoose.Promise = Promise; not sure I need this
 mongoose.connect(MONGODB_URI);
 
 //================ ROUTES ================

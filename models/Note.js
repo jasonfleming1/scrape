@@ -1,7 +1,22 @@
-//================ REQUIRE DEPENDENCIES ================
+//================ REQUIRE PACKAGES ================
 
-const mongoose = require("mongoose");
+var mongoose = require("mongoose");
 
-//================ SCHEMA CONSTRUCTOR REFERENCE ================
+//================ CONSTRUCTOR REFERNECE ================
 
-const Schema = mongoose.Schema;
+var Schema = mongoose.Schema;
+
+//================ SCHEMA ================
+
+var NoteSchema = new Schema({
+    title: String,
+    body: String,
+}); // ==> end Schema
+
+//================ CREATE MODEL ================
+
+var Note = mongoose.model("Note", NoteSchema);
+
+//================ EXPORT SCHEMA ================
+
+module.exports = Note;

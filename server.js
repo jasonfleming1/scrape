@@ -40,20 +40,27 @@ app.set("view engine", "handlebars");
 //================ DB CONNECTION {heroku required} ================
 
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/scrape";
+//mongoose.Promise = Promise; not sure I need this
 mongoose.connect(MONGODB_URI);
 
 //================ ROUTES ================
 
-//GET route retrieves all db Articles
+//LOAD Page
 
-//GET route to scrape website
+//GET scrape website
 
-//GET route retrieves an aritcle by ID
+//GET isSavedArticles
 
-//POST route for saving/updating a note
+//POST save article
+
+//GET delete article
+
+//POST create note
+
+//GET delete note
 
 //================ SERVER STARTS ================
 
 app.listen(PORT, function() {
-    console.log("Scraper is running on port " + PORT + " »");
+    console.log("Scraper is running on port " + PORT + "!");
 });

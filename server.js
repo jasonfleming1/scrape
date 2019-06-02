@@ -55,8 +55,15 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 //================ ARTICLE ROUTES ================
 
-//GET home route revised
-app.get("/", function(req, res) {
+//GET home page without results like the demo
+app.get("/", function (req, res) {
+  console.log(req);
+  console.log(req)
+  res.render("index");
+});// ==> get home revised
+
+//GET scraped
+app.get("/scraped", function(req, res) {
   db.Article.find(
     {
       saved: false
@@ -72,7 +79,7 @@ app.get("/", function(req, res) {
       }
     }
   );
-}); // ==> get home revised
+}); // ==> get scraped complete
 
 //GET isSavedArticles revised
 app.get("/saved", function(req, res) {
@@ -99,32 +106,35 @@ app.get("/scrape", function(req, res) {
   axios.get("http://www.startribune.com/local/").then(function(response) {
     //let cheerio handle the response
     var $ = cheerio.load(response.data);
-
+    console.log($)
     //class that contains articles
     $("div.tease-container-right").each(function(i, element) {
       //empty result object
       var result = {};
 
+      result.title = $(this)
+      .find("a.tease-headline")
+      .text()
+      .trim();
       result.link = $(this)
         .find("a.tease-headline")
         .attr("href");
-      result.title = $(this)
-        .find("a.tease-headline")
-        .text()
-        .trim();
       result.summary = $(this)
         .find("div.tease-summary")
         .text()
         .trim();
+
+        //console.log(result);
         db.Article.create(result)
         .then(function (dbArticle) {
-          console.log(dbArticle);
+          //console.log(dbArticle);
+          res.send("Scrape Complete!");
         })
         .catch(function (err) {
+          console.log(err)
           return res.json(err);
         });
     });
-    res.send("Scrape Complete!");
   });
 });// ==> end GET scrape
 

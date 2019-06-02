@@ -9,7 +9,7 @@ $("#scrapeNav").on("click", function () {
         url: "/scrape",
     }).done(function (data) {
         console.log(data)
-        $(location).attr("href", "/");
+        $(location).attr("href", "/scraped");
     });
 });
 
@@ -20,18 +20,18 @@ $("#scrapeBtn").on("click", function () {
         url: "/scrape",
     }).done(function (data) {
         console.log(data)
-        $(location).attr("href", "/");
+        $(location).attr("href", "/scraped");
     });
 });
 
-//Scrap jumbo element
+//Scrape jumbo element
 $("#scrapeJumbo").on("click", function () {
     $.ajax({
         method: "GET",
         url: "/scrape",
     }).done(function (data) {
         console.log(data)
-        $(location).attr("href", "/");
+        $(location).attr("href", "/scraped");
     });
 });
 

@@ -53,7 +53,7 @@ app.set("view engine", "handlebars");
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/stribscraper";
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
-//================ ROUTES ================
+//================ ARTICLE ROUTES ================
 
 //GET home route revised
 app.get("/", function(req, res) {
@@ -148,26 +148,6 @@ app.post("/articles/save/:id", function(req, res) {
     });
 }); // ==> end post save articles
 
-// POST add a note
-app.post("/notes/save/:id", function (req, res) {
-  console.log("body: " + req.body)
-  console.log("Id: " + req.params.id)
-  // Create a new note and pass the req.body to the entry
-  db.Note.create(req.body)
-    .then(function (dbNote) {
-
-      return db.Article.findOneAndUpdate({ _id: req.params.id }, { note: dbNote._id }, { new: true });
-    })
-    .then(function (dbnote) {
-      // Update an Article,
-      res.json(dbnote);
-    })
-    .catch(function (err) {
-      // If an error occurred, send it to the client
-      res.json(err);
-    });
-}); // ==> end post add a note (not working on ui)
-
 // POST remove from saved list
 app.post("/articles/delete/:id", function (req, res) {
   // Use the article id to find and update its saved boolean
@@ -180,7 +160,6 @@ app.post("/articles/delete/:id", function (req, res) {
       res.json(err);
     });
 }); // ==> end post remove from saveed list
-
 
 //GET clear from scraped list
 app.get("/clear", function(req, res) {
@@ -196,6 +175,25 @@ app.get("/clear", function(req, res) {
     res.redirect("/");
 }); // ==> end clear from scraped list
 
+//================ NOTE ROUTES ================
+
+// POST add a note
+app.post("/notes/save/:id", function (req, res) {
+  console.log("body: " + req.body)
+  console.log("Id: " + req.params.id)
+  // Create a new note and pass the req.body to the entry
+  db.Note.create(req.body)
+    .then(function (dbNote) {
+      return db.Article.findOneAndUpdate({ _id: req.params.id }, { note: dbNote._id }, { new: true });
+    })
+    .then(function (dbnote) {
+      res.json(dbnote);
+    })
+    .catch(function (err) {
+      res.json(err);
+    });
+}); // ==> end post add a note (not working on ui)
+
 // GET delete a note
 app.get("/notes/delete/:id", function (req, res) {
   // Use the note id to find and delete it
@@ -205,7 +203,6 @@ app.get("/notes/delete/:id", function (req, res) {
     res.json(err)
   });
 }); // ==> end get delete a note (not working 404)
-
 
 
 //================ SERVER STARTS ================

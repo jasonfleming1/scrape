@@ -1,3 +1,5 @@
+//ARTCLE MODEL
+
 //================ REQUIRE PACKAGES ================
 
 var mongoose = require("mongoose");
@@ -27,9 +29,9 @@ var ArticleSchema = new Schema({
         default: false
     },
     note: {
-        type: Schema.Types.ObjectId,
-        ref: "Note"
-    }
+		type: Schema.Types.ObjectId,
+		ref: "Note"
+	},
 }); // ==> end Schema
 
 //================ CREATE MODEL ================

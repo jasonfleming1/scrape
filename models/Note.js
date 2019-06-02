@@ -1,4 +1,3 @@
-//================ REQUIRE PACKAGES ================
 
 var mongoose = require("mongoose");
 

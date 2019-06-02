@@ -16,9 +16,9 @@ $(".save").on("click", function() {
     var thisId = $(this).attr("data-id");
     $.ajax({
         method: "POST",
-        url: "/articles/save" + thisId
-    }).then(function(data) {
-        location.reload(); //load home page
+        url: "/articles/save/" + thisId
+    }).done(function(data) {
+        $(location).attr("href","/");
     })
 }); // ==> end save article button
 
@@ -28,14 +28,11 @@ $(".delete").on("click", function() {
     var thisId = $(this).attr("data-id");
     $.ajax({
         method: "POST",
-        url: "/articles/delete" + thisId
-    }).then(function(data) {
-        location.reload(); //load home page
+        url: "/articles/delete/" + thisId
+    }).done(function(data) {
+        $(location).attr("href","/");
     })
-    .catch(function (err){
-        console.log("Error on line 36 app.js" + err);
-    })
-});  // ==> end delete article button
+});
 
 //================ SAVE NOTE BUTTON ================
 
@@ -62,12 +59,12 @@ $(".saveNote").on("click", function() {
 
 $(".deleteNote").on("click", function() {
     var noteId = $(this).attr("data-note-id");
+     // console.log(articleId);
         $.ajax({
             method: "GET",
             url: "/notes/delete/" + noteId
         }).done(function(data) {
             $(".modalNote").modal("hide");
-            $(location).attr("href","/saved"); //load "saved" page
+            $(location).attr("href","/saved");
         })
-
-}); // ==> end delete note
+    }); // ==> end delete note

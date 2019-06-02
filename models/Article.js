@@ -34,7 +34,7 @@ var ArticleSchema = new Schema({
 
 //================ CREATE MODEL ================
 
-var Article = mongoose.model("Artcle", ArticleSchema);
+var Article = mongoose.model("Article", ArticleSchema);
 
 //================ EXPORT SCHEMA ================
 

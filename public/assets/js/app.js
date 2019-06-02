@@ -2,8 +2,30 @@
 
 //================ SCRAPE ================
 
-//Handle Scrape button
-$("#scrape").on("click", function () {
+//Scrap Nav element
+$("#scrapeNav").on("click", function () {
+    $.ajax({
+        method: "GET",
+        url: "/scrape",
+    }).done(function (data) {
+        console.log(data)
+        $(location).attr("href", "/");
+    });
+});
+
+//Scrap button element
+$("#scrapeBtn").on("click", function () {
+    $.ajax({
+        method: "GET",
+        url: "/scrape",
+    }).done(function (data) {
+        console.log(data)
+        $(location).attr("href", "/");
+    });
+});
+
+//Scrap jumbo element
+$("#scrapeJumbo").on("click", function () {
     $.ajax({
         method: "GET",
         url: "/scrape",
@@ -17,7 +39,6 @@ $("#scrape").on("click", function () {
 
 //Set clicked nav option to active
 $(".navbar-nav li").click(function () {
-    o
     $(".navbar-nav li").removeClass("active");
     $(this).addClass("active");
 });

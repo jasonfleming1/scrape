@@ -99,6 +99,7 @@
   /*add a note*/
   .btn-primary {
     font-weight: bold;
+    border: 1px #707981;
     background-color: #707981;
   }
 
@@ -113,6 +114,11 @@
       color: #28A745;
       font-weight: bold;
       text-decoration: underline;
+    }
+
+    .btn-primary:hover {
+      border: 1px #707981;
+      background-color: #5C646A;
     }
   
 /******************** INDEX AND SAVED.HBS SHARED STYLES ******************************/
@@ -162,9 +168,6 @@
   }
   h5 {
     font-size: 19px;
-  }
-  #readMe {
-    padding: 10px;
   }
   .btn-success {
     padding: 10px;

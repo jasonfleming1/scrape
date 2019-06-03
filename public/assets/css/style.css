@@ -102,20 +102,13 @@
     margin-left: 15px;
   }
 
-  /*override for success style from index*/
-  #leftBtn {
-    float: left;
-  }
-
   /*button states*/
   #backButton:hover {
       color: #28A745;
       font-weight: bold;
       text-decoration: underline;
     }
-
-
-    
+  
 /******************** INDEX AND SAVED.HBS SHARED STYLES ******************************/
 
   /*style for border around articles*/
@@ -165,6 +158,9 @@
     font-size: 19px;
   }
   #readMe {
+    padding: 10px;
+  }
+  .btn-success {
     padding: 10px;
   }
   .btn-secondary {

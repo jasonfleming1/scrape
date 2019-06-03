@@ -30,7 +30,7 @@ $("#scrapeJumbo").on("click", function () {
         method: "GET",
         url: "/scrape",
     }).done(function (data) {
-        console.log(data)
+        //console.log(data)
         $(location).attr("href", "/scraped");
     });
 });
@@ -49,18 +49,18 @@ $(".navbar-nav li").click(function () {
 $(".save").on("click", function () {
     var thisId = $(this).attr("data-id");
     $.ajax({
-        method: "POST",
+        method: "PUT",
         url: "/articles/save/" + thisId
     }).done(function (data) {
         $(location).attr("href", "/scraped");
     })
 });
 
-//Delete Article button
+//Remove from Saved
 $(".delete").on("click", function () {
     var thisId = $(this).attr("data-id");
     $.ajax({
-        method: "POST",
+        method: "PUT",
         url: "/articles/delete/" + thisId
     }).done(function (data) {
         $(location).attr("href", "/saved");
@@ -70,7 +70,7 @@ $(".delete").on("click", function () {
 //================ NOTE ACTIONS ================
 
 //Save Note button
-$(".saveNote").on("click", function (event) {
+$(".saveNote").on("click", "#saveNote", function (event) {
     event.preventDefault();
     var note = {};
     id = $(this).attr("data-id");

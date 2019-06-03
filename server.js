@@ -9,7 +9,7 @@ var mongoose = require("mongoose");
 var axios = require("axios");
 var cheerio = require("cheerio");
 
-//front-end requirements
+//front-end requirements new
 var exphbs = require("express-handlebars");
 
 //================ INITIALIZATION + MIDDLEWARE ================
@@ -19,7 +19,7 @@ var db = require("./models");
 console.log(db);
 
 //assign the port {heroku required}
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3600;
 
 //initialize Express
 var app = express();
@@ -43,7 +43,7 @@ app.engine(
   "handlebars",
   exphbs({
     defaultLayout: "main",
-    partialsDir: __dirname + '/views/layouts/partials'
+    partialsDir: __dirname + "/views/layouts/partials"
   })
 );
 app.set("view engine", "handlebars");
@@ -56,11 +56,11 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 //================ ARTICLE ROUTES ================
 
 //GET home page without results like the demo
-app.get("/", function (req, res) {
+app.get("/", function(req, res) {
   console.log(req);
-  console.log(req)
+  console.log(req);
   res.render("index");
-});// ==> get home revised
+}); // ==> get home revised
 
 //GET scraped
 app.get("/scraped", function(req, res) {
@@ -106,40 +106,40 @@ app.get("/scrape", function(req, res) {
   axios.get("http://www.startribune.com/local/").then(function(response) {
     //let cheerio handle the response
     var $ = cheerio.load(response.data);
-    console.log($)
+    console.log($);
     //class that contains articles
     $("div.tease-container-right").each(function(i, element) {
       //empty result object
+      //console.log(element);
       var result = {};
 
-      result.title = $(this)
-      .find("a.tease-headline")
-      .text()
-      .trim();
-      result.link = $(this)
+      result.title = $(element)
+        .find("a.tease-headline")
+        .text()
+        .trim();
+      result.link = $(element)
         .find("a.tease-headline")
         .attr("href");
-      result.summary = $(this)
+      result.summary = $(element)
         .find("div.tease-summary")
         .text()
         .trim();
-
-        //console.log(result);
-        db.Article.create(result)
-        .then(function (dbArticle) {
-          //console.log(dbArticle);
-          res.send("Scrape Complete!");
+      db.Article.create(result)
+        .then(function(dbArticle) {
+          console.log(dbArticle);
         })
-        .catch(function (err) {
-          console.log(err)
+        .catch(function(err) {
+          // If an error occurred, send it to the client
           return res.json(err);
         });
     });
+    // If we were able to successfully scrape and save an Article, send a message to the client
+    res.send("Scrape Complete!");
   });
-});// ==> end GET scrape
+});
 
-//POST save article
-app.post("/articles/save/:id", function(req, res) {
+//PUT save article
+app.put("/articles/save/:id", function(req, res) {
   db.Article.findOneAndUpdate(
     {
       _id: req.params.id
@@ -156,20 +156,23 @@ app.post("/articles/save/:id", function(req, res) {
       res.json(err);
       console.log("Item not saved because: " + err);
     });
-}); // ==> end post save articles
+}); // ==> end put save articles
 
-// POST remove from saved list
-app.post("/articles/delete/:id", function (req, res) {
+// PUT remove from saved list
+app.put("/articles/delete/:id", function(req, res) {
   // Use the article id to find and update its saved boolean
-  db.Article.findOneAndUpdate({ "_id": req.params.id }, { "saved": false, "notes": [] })
-    .then(function (response) {
+  db.Article.findOneAndUpdate(
+    { _id: req.params.id },
+    { saved: false, notes: [] }
+  )
+    .then(function(response) {
       res.json(response);
     })
-    .catch(function (err) {
+    .catch(function(err) {
       // If an error occurred, send it to the client
       res.json(err);
     });
-}); // ==> end post remove from saveed list
+}); // ==> end put remove from saveed list
 
 //GET clear from scraped list
 app.get("/clear", function(req, res) {
@@ -182,38 +185,49 @@ app.get("/clear", function(req, res) {
       res.json(err);
       console.log("Item not removed because: " + err);
     });
-    res.redirect("/scraped");
+  res.redirect("/scraped");
 }); // ==> end clear from scraped list
 
 //================ NOTE ROUTES ================
 
 // POST add a note
-app.post("/notes/save/:id", function (req, res) {
-  console.log("body: " + req.body)
-  console.log("Id: " + req.params.id)
+app.post("/notes/save/:id", function(req, res) {
+  console.log("body: " + req.body);
+  console.log("Id: " + req.params.id);
   // Create a new note and pass the req.body to the entry
   db.Note.create(req.body)
-    .then(function (dbNote) {
-      return db.Article.findOneAndUpdate({ _id: req.params.id }, { note: dbNote._id }, { new: true });
+    .then(function(dbNote) {
+      console.log(dbNote);
+      return db.Article.findOneAndUpdate(
+        { _id: req.params.id 
+        },
+        { note: req.body
+        },
+        { new: true 
+        }
+      );
     })
-    .then(function (dbnote) {
+    .then(function(dbnote) {
       res.json(dbnote);
+      console.log(dbnote);
     })
-    .catch(function (err) {
+    .catch(function(err) {
       res.json(err);
     });
+    res.redirect("/saved");
 }); // ==> end post add a note (not working on ui)
 
 // GET delete a note
-app.get("/notes/delete/:id", function (req, res) {
+app.get("/notes/delete/:id", function(req, res) {
   // Use the note id to find and delete it
-  db.Note.findOneAndRemove({ "_id": req.params.id }).then(function (response) {
-    res.redirect("/saved")
-  }).catch(function (err) {
-    res.json(err)
-  });
+  db.Note.findOneAndRemove({ _id: req.params.id })
+    .then(function(response) {
+      res.redirect("/saved");
+    })
+    .catch(function(err) {
+      res.json(err);
+    });
 }); // ==> end get delete a note (not working 404)
-
 
 //================ SERVER STARTS ================
 

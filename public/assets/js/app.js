@@ -50,6 +50,7 @@ $(".save").on("click", function () {
     var thisId = $(this).attr("data-id");
     $.ajax({
         method: "PUT",
+        
         url: "/articles/save/" + thisId
     }).done(function (data) {
         $(location).attr("href", "/scraped");

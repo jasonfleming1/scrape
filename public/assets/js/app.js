@@ -31,7 +31,6 @@ $(".save").on("click", function () {
     var thisId = $(this).attr("data-id");
     $.ajax({
         method: "PUT",
-        
         url: "/articles/save/" + thisId
     }).done(function (data) {
         $(location).attr("href", "/scraped");
@@ -57,13 +56,14 @@ $(".saveNote").on("click", "#saveNote", function (event) {
     var note = {};
     id = $(this).attr("data-id");
     note.body = $("#noteText").val().trim();
-    console.log("noteText");
+    console.log(note);
     // note.body =$("data-noteid").val().trim();
     console.log("note:" + note.body);
     if (!$("#noteText").val()) {
         alert("please enter a note to save")
     } else {
         console.log("note id: " + id)
+        console.log("note.body: " + note.body)
         $.post("/notes/save/" + id, {
             body: note.body
         }).then(function (data) {

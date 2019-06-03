@@ -155,17 +155,20 @@
   }
 
 
-
-
 /******************** MEDIA BREAKS ******************************/
 
 @media (max-width: 780px) {
   .jumbotron {
     height: 200px;
   }
-
   h5 {
-    font-size: 15px;
+    font-size: 19px;
+  }
+  .btn-secondary {
+    padding: 10px;
+  }
+  .btn-danger {
+    padding: 10px;
   }
 }
 

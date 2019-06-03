@@ -82,7 +82,7 @@ app.get("/scraped", function(req, res) {
 }); // ==> get scraped complete
 
 //GET isSavedArticles revised
-app.get("/save", function(req, res) {
+app.get("/saved", function(req, res) {
   db.Article.find(
     {
       saved: true

@@ -78,7 +78,7 @@
   #scrapeBtn:hover {
     cursor: pointer;
     text-decoration: underline;
-    color: red;
+    color: #28A745;
     font-weight: bold;
     }
     
@@ -109,7 +109,7 @@
 
   /*button states*/
   #backButton:hover {
-      color: red;
+      color: #28A745;
       font-weight: bold;
       text-decoration: underline;
     }

@@ -1,4 +1,36 @@
-<!--Homepage-->
+{{#if article}} {{#each article}}
+<div id="cardBorder" class="card mb-3">
+    <div class="card-header">
+        <h5>{{this.title}}</h5>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-12">
+                <h6>Article Summary</h6>
+                <p id="pSummary">{{this.summary}}</p>
+            </div>
+        </div>
+        <br>
+        <button type="button" id="leftBtn" class="btn btn-secondary addNote" data-toggle="modal" data-target="#noteModal{{this._id}}" data-id={{this._id}}>Add a Note</button>
+        <button type="button" class="btn btn-danger delete" data-id={{this._id}}>Remove from Saved</button>
+    </div>
+</div>
+<br>
+{{/each}} {{else}}
+<div id="centerSpace">
+    <p id="emptySaved">You have no saved articles!</p>
+    <a id="backButton" href="/scraped">«&nbspReturn</a>
+</div>
+</div>
+{{/if}}
+
+
+
+{{#each article}}
+{{> notes-modal }}
+{{/each}}
+
+<!--
 <div class="container">
 
     {{!-- <div class="row"> --}}
@@ -26,17 +58,13 @@
 
         {{/each}}
         {{else}}
-        <div class="card">
-            <div class="card-body">
-                <h4>You have no saved articles.</h4>
-            </div>
+        <div>
+
         </div>
         {{/if}}
-        {{!-- </div> --}}
 
     </div>
 
-    <!--Clicked Notes Modal-->
     {{#each article}}
     {{> notes-modal }}
-    {{/each}}
+    {{/each}} -->

@@ -15,66 +15,68 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 
-    <!-- =============== CSS EMBEDDED STYLE =============== -->
-
-    <style>
-        .jumbotron {
-            margin-top: 20px;
-            background-image: url("https://media.giphy.com/media/3o7TKEKWFRN9ljUjle/giphy.gif");
-            background-size: cover;
-            color: white;
-        }
-    </style>
-
     <!-- =============== CSS REFERENCES =============== -->
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
+    <!-- =============== TITLE =============== -->
+
     <title>
-        Strib Scraper
+        StribScraper
     </title>
 </head>
 
 <body>
-    <div class="container">
-        <nav id="mainnav" class="navbar navbar-expand-lg navbar-light bg-muted">
-            <a class="navbar-brand" href="/scraped">Local News Scraper</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/scraped">Home
-                            <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/saved">Saved Arcticles</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="scrapeNav">Scrape Articles</a>
-                    </li>
-                </ul>
-                <button type="button" class="btn btn-primary" id="scrapeBtn">Scrape Articles</button>
-                <a id="clear" class="btn btn-danger" href="/clear" role="button">Clear</a>
-            </div>
-        </nav>
-        <div class="jumbotron">
-            <h1 class="display-4">Strib Scraper</h1>
-            <p class="lead">Local News from the Star Tribune</p>
-            </br>
-            <button type="button" class="btn btn-primary btn-lg" id="scrapeJumbo">Scrape Articles</button>
+
+    <!-- =============== NAVBAR  =============== -->
+
+    <nav id="mainnav" class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">StribScraper</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <!-- a class="nav-link" href="/scraped">Home<span class="sr-only">(current)</span></a -->
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" role="button" id="scrapeNav">Scrape Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/clear">Clear Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/saved">Saved Arcticles</a>
+                </li>
+            </ul>
         </div>
+    </nav>
+
+    <!-- =============== JUMBOTRON =============== -->
+
+    <div class="jumbotron">
+        <h1 class="display-4">StribScraper</h1>
+        <hr id="jumboLine" />
+        <p class="lead">Scraping the local news from the Star Tribune</p>
+        </br>
+    </div>
+
+    <!-- =============== CONTENT =============== -->
+
+    <div class="container">
         {{{ body }}}
     </div>
 
-    <!-- =============== JAVASCRIPT REFERENCES =============== -->
+    <!-- =============== EXTERNAL JS  REFERENCES =============== -->
+
     <script src="/assets/js/app.js"></script>
 </body>
 

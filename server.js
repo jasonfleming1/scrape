@@ -4,7 +4,6 @@
 var express = require("express");
 var logger = require("morgan");
 var mongoose = require("mongoose");
-var path = require("path");
 
 //scraping tools
 var axios = require("axios");
@@ -20,7 +19,7 @@ var db = require("./models");
 console.log(db);
 
 //assign the port {heroku required}
-var PORT = process.env.PORT || 3600;
+var PORT = process.env.PORT || 3000;
 
 //initialize Express
 var app = express();

@@ -1,66 +1,163 @@
-* {
-  color: rgb(32, 27, 27);
-}
+/******************** GLOBAL STYLES ******************************/
 
-#mainnav {
-  box-shadow: 2px 2px 8px 2px rgba(92, 92, 97, 0.2);
-  text-shadow: 1px 1px 3px rgba(63, 63, 66, 0.671);
-  margin: 10px;
-}
-.card {
-  margin-bottom: 10px;
-}
+  /*global type*/
+  * {
+    font-family: 'Roboto', sans-serif;
+  }
 
-.card-body {
-  padding: 10px;
-  box-shadow: 3px 3px 5px 1px rgba(92, 92, 97, 0.2);
-  text-shadow: 1px 1px 2px rgba(63, 63, 66, 0.397);
-  font-size: 20px;
-}
 
-.card-header {
-  background-color: rgb(216, 218, 221);
-  box-shadow: 3px 3px 5px 1px rgba(92, 92, 97, 0.2);
-  text-shadow: 1px 1px 3px rgba(63, 63, 66, 0.582);
-}
+/******************** MAIN.HBS STYLES ******************************/
 
-.btn {
-  box-shadow: 3px 3px 4px 1px rgba(67, 67, 71, 0.438);
-  font-weight: bold;
-  text-shadow: 1px 1px 2px rgba(63, 63, 66, 0.671);
-}
+  /*navband type*/
+  .navbar-brand {
+    font-family: 'Roboto Slab', bold, serif;
+  }
 
-#noteText {
-  box-shadow: 3px 3px 5px 1px rgba(92, 92, 97, 0.2);
-}
+  /*nav hover*/
+  li:hover {
+    transition: 0.2s;
+    color: #ffffff;
+    font-weight: bolder;
+    cursor: pointer;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
 
-.modal-header {
-  background-color: rgb(237, 237, 241);
-  text-shadow: 1px 1px 3px rgba(63, 63, 66, 0.589);
-  box-shadow: 3px 3px 5px 1px rgba(88, 88, 92, 0.2);
-}
+  /*JUMBO sizing*/
+  .jumbotron {
+    background-image: url("https://media.giphy.com/media/v2xIous7mnEYg/giphy.gif");
+    background-size: cover;
+    color: white;
+    margin: 0px, 0px, 20px, 0px;
+    height: 500px;
+    text-align: center;
+  }
 
-h1 {
-  text-shadow: 2px 2px 15px rgba(30, 30, 31, 0.87);
-  font-size: 60px !important ;
-  font-weight: bold;
-}
+  /*JUMBO type*/
+  .display-4 {
+    font-family: 'Roboto Slab', bold, serif;
+    font-size: 120px;
+  }
 
-.jumbotron {
-  font-family: "Roboto";
-  margin: 30px;
-  box-shadow: 10px 10px 15px 2px rgba(20, 20, 20, 0.37);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 350px;
-  background-size: 100% 100%;
-  padding: 20px;
-}
+  .lead {
+    font-family: 'Roboto', medium, sans-serif;
+    padding-top: 10px;
+  }
 
-#clear {
-  margin-left: 10px;
-}
+  /*horizontal line*/
+  #jumboLine {
+    border: 2px dotted white;
+    width: 50%;
+  }
+
+/******************** INDEX.HBS STYLES ******************************/
+
+  /*empty scraped message*/
+  #emptyScrape {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  /*CTA button styling*/
+  #scrapeBtn {
+    color: black;
+    font-size: 22px;
+  }
+
+  .btn-secondary {
+    font-weight: bold;
+  }
+
+  .btn-success {
+    font-weight: bold;
+  }
+
+  /*button states*/
+  #scrapeBtn:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    color: red;
+    font-weight: bold;
+    }
+    
+/******************** SAVED.HBS STYLES ******************************/
+
+  /*empty saved message*/
+  #emptySaved {
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  /*button styling*/
+  #backButton {
+    color: black;
+    font-size: 22px;
+  }
+
+  /*remove saved article button*/
+  .btn-danger {
+    font-weight: bold;
+    margin-left: 15px;
+  }
+
+  /*override for success style from index*/
+  #leftBtn {
+    float: left;
+  }
+
+  /*button states*/
+  #backButton:hover {
+      color: red;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+
+    
+/******************** INDEX AND SAVED.HBS SHARED STYLES ******************************/
+
+  /*style for border around articles*/
+  #cardBorder {
+    box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  /*div for text and button*/
+  #centerSpace {
+    text-align: center;
+  }
+
+  /*card header*/
+  .card-header {
+    background: #484848;
+    color: #ffffff;
+  }
+
+  /*card title for all articles*/
+  h5 {
+    padding-top: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
+    font-size: 25px;
+  }
+
+  /*article summary header*/ 
+  h6 {
+    font-family: 'Roboto Slab', bold, serif;
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  /*summary paragraph styles*/ 
+  #pSummary {
+    font-size: 19px;
+  }
+
+
+
+
+/******************** MEDIA BREAKS ******************************/
 
 @media (max-width: 780px) {
   .jumbotron {
@@ -80,3 +177,5 @@ h1 {
     height: 250px;
   }
 }
+
+/**************************************************/

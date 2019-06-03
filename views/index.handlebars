@@ -1,13 +1,13 @@
 {{#if article}} {{#each article}}
-<div class="card mb-3">
+<div id="cardBorder" class="card mb-3">
   <div class="card-header">
     <h5>{{this.title}}</h5>
   </div>
   <div class="card-body">
     <div class="row">
       <div class="col-12">
-        <h6>Article Summary:</h6>
-        <p>{{this.summary}}</p>
+        <h6>Article Summary</h6>
+        <p id="pSummary">{{this.summary}}</p>
       </div>
     </div>
     <br>
@@ -17,10 +17,11 @@
     </div>
   </div>
 </div>
+<br>
 {{/each}} {{else}}
-<div class="card">
-  <div class="card-body">
-    <h4>Looks like we don't have any new articles. Please press Scrape.</h4>
+  <div id="centerSpace">
+    <p id="emptyScrape">Looks like we don't have any news!</p>
+    <a role="button" id="scrapeBtn">Scrape Articles Now</a>
   </div>
 </div>
 {{/if}}

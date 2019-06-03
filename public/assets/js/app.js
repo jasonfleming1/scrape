@@ -24,25 +24,6 @@ $("#scrapeBtn").on("click", function () {
     });
 });
 
-//Scrape jumbo element
-$("#scrapeJumbo").on("click", function () {
-    $.ajax({
-        method: "GET",
-        url: "/scrape",
-    }).done(function (data) {
-        //console.log(data)
-        $(location).attr("href", "/scraped");
-    });
-});
-
-//================ NAV ================
-
-//Set clicked nav option to active
-$(".navbar-nav li").click(function () {
-    $(".navbar-nav li").removeClass("active");
-    $(this).addClass("active");
-});
-
 //================ ARTICLE ACTIONS ================
 
 //Save Article button

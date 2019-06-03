@@ -73,6 +73,7 @@
 
   .btn-success {
     font-weight: bold;
+    margin-left: 10px;
   }
 
   /*button states*/
@@ -95,13 +96,6 @@
   #backButton {
     color: black;
     font-size: 22px;
-  }
-
-  /*add a note*/
-  .btn-primary {
-    font-weight: bold;
-    border: 1px #707981;
-    background-color: #707981;
   }
 
   /*remove saved article button*/
@@ -158,6 +152,7 @@
   /*summary paragraph styles*/ 
   #pSummary {
     font-size: 19px;
+    padding-bottom: 15px;
   }
 
 
@@ -179,9 +174,6 @@
   .btn-success {
     padding: 10px;
   }
-  .btn-secondary {
-    padding: 10px;
-  }
   .btn-danger {
     padding: 10px;
   }
@@ -198,9 +190,6 @@
     font-size: 19px;
   }
   .btn-success {
-    padding: 10px;
-  }
-  .btn-secondary {
     padding: 10px;
   }
   .btn-danger {

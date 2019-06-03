@@ -38,6 +38,7 @@
   .display-4 {
     font-family: 'Roboto Slab', bold, serif;
     font-size: 120px;
+    margin-bottom: 30px;
   }
 
   .lead {
@@ -163,11 +164,17 @@
 /******************** MEDIA BREAKS ******************************/
 
 @media (max-width: 780px) {
-  .jumbotron {
+  jumbotron {
     height: 200px;
   }
   h5 {
-    font-size: 19px;
+    font-size: 16px;
+  }
+  h6 {
+    font-size: 14px;
+  }
+  #pSummary {
+    font-size: 14px;
   }
   .btn-success {
     padding: 10px;
@@ -184,7 +191,7 @@
 }
 
 @media (max-width: 980px) {
-  jumbotron {
+  .jumbotron {
     height: 250px;
   }
   h5 {
@@ -203,5 +210,7 @@
     padding: 10px;
   }
 }
+
+
 
 /**************************************************/

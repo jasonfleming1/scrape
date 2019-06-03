@@ -9,15 +9,16 @@
             </div>
             <div class="modal-body">
                 {{#if this.note}}
-                    {{#each this.note}}
-                        <div class="card">
-                            <div class="card-header">
-                                <button type="button" class="btn btn-danger deleteNote" data-note-id={{this.note._id}}>X</button>
-                                </br>
-                                <p class="previousNotes">{{this.note.body}}</p>
-                            </div>
-                        </div>
-                    {{/each}}
+                {{#each this.note}}
+                <div class="card">
+                    <div class="card-header">
+                        <button type="button" class="btn btn-danger deleteNote"
+                            data-note-id={{this.note._id}}>X</button>
+                        </br>
+                        <p class="previousNotes">{{this.note.body}}</p>
+                    </div>
+                </div>
+                {{/each}}
                 {{else}}
                 <div class="card">
                     <div class="card-body">
@@ -27,10 +28,11 @@
                 {{/if}}
                 <form action="/notes/save/{{this._id}}" method="POST">
                     <div class="form-group">
-                        <textarea id="noteText" data-noteid={{this._id}} class="form-control" rows="7" placeholder="New Note" name="body"></textarea>
+                        <textarea id="noteText" data-noteid={{this._id}} class="form-control" rows="7"
+                            placeholder="New Note" name="body"></textarea>
                     </div>
                     <div class="modal-footer">
-                        <button data-id={{this._id}} type="submit" class="btn btn-primary saveNote">Save Note</button>
+                        <button data-id={{this._id}} type="submit" class="btn btn-success saveNote">Save Note</button>
                     </div>
                 </form>
             </div>

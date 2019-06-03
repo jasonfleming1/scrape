@@ -187,6 +187,21 @@
   jumbotron {
     height: 250px;
   }
+  h5 {
+    font-size: 19px;
+  }
+  .btn-success {
+    padding: 10px;
+  }
+  .btn-secondary {
+    padding: 10px;
+  }
+  .btn-danger {
+    padding: 10px;
+  }
+  .btn-primary {
+    padding: 10px;
+  }
 }
 
 /**************************************************/

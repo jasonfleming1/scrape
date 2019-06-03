@@ -96,10 +96,16 @@
     font-size: 22px;
   }
 
+  /*add a note*/
+  .btn-primary {
+    font-weight: bold;
+    background-color: #707981;
+  }
+
   /*remove saved article button*/
   .btn-danger {
     font-weight: bold;
-    margin-left: 15px;
+    margin-left: 10px;
   }
 
   /*button states*/
@@ -167,6 +173,9 @@
     padding: 10px;
   }
   .btn-danger {
+    padding: 10px;
+  }
+  .btn-primary {
     padding: 10px;
   }
 }

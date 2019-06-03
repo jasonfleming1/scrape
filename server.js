@@ -4,7 +4,7 @@
 var express = require("express");
 var logger = require("morgan");
 var mongoose = require("mongoose");
-
+var path = require("path");
 //scraping tools
 var axios = require("axios");
 var cheerio = require("cheerio");
@@ -43,7 +43,7 @@ app.engine(
   "handlebars",
   exphbs({
     defaultLayout: "main",
-    partialsDir: __dirname + "/views/layouts/partials"
+    partialsDir: path.join(__dirname, "/views/layouts/partials")
   })
 );
 app.set("view engine", "handlebars");

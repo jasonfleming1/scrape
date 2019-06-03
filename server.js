@@ -182,7 +182,7 @@ app.get("/clear", function(req, res) {
       res.json(err);
       console.log("Item not removed because: " + err);
     });
-    res.redirect("/");
+    res.redirect("/scraped");
 }); // ==> end clear from scraped list
 
 //================ NOTE ROUTES ================

@@ -52,7 +52,7 @@ $(".save").on("click", function () {
         method: "POST",
         url: "/articles/save/" + thisId
     }).done(function (data) {
-        $(location).attr("href", "/");
+        $(location).attr("href", "/scraped");
     })
 });
 

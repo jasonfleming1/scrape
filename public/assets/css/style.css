@@ -164,6 +164,9 @@
   h5 {
     font-size: 19px;
   }
+  #readMe {
+    padding: 10px;
+  }
   .btn-secondary {
     padding: 10px;
   }

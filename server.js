@@ -9,7 +9,7 @@ var mongoose = require("mongoose");
 var axios = require("axios");
 var cheerio = require("cheerio");
 
-//front-end requirement
+//front-end requirements
 var exphbs = require("express-handlebars");
 
 //================ INITIALIZATION + MIDDLEWARE ================

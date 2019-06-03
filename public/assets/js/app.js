@@ -51,30 +51,27 @@ $(".delete").on("click", function () {
 //================ NOTE ACTIONS ================
 
 //Save Note button
-$(".saveNote").on("click", "#saveNote", function (event) {
+$(".saveNote").on("click", function(event) {
     event.preventDefault();
     var note = {};
     id = $(this).attr("data-id");
-    note.body = $("#noteText").val().trim();
-    console.log(note);
+    note.body =$("#noteText").val().trim();
+    console.log("noteText");
     // note.body =$("data-noteid").val().trim();
-    console.log("note:" + note.body);
+    console.log("note:"+ note.body);
     if (!$("#noteText").val()) {
         alert("please enter a note to save")
-    } else {
-        console.log("note id: " + id)
-        console.log("note.body: " + note.body)
-        $.post("/notes/save/" + id, {
-            body: note.body
-        }).then(function (data) {
-            // Log the response
-            console.log(data);
+    }else {
+        console.log("note id: "+id)
+      $.post("/notes/save/" + id,  { body: note.body}).then(function(data) {
+              // Log the response
+              console.log(data);
             //   clear note box
-            $("#noteText").val("");
-            $(".modalNote").modal("hide");
-            $(location).attr("href", "/saved");
-        });
-    }
+              $("#noteText").val("");
+              $(".modalNote").modal("hide");
+              $(location).attr("href","/saved");
+          });
+        }    
 });
 
 //Delete Note button

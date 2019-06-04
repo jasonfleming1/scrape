@@ -69,7 +69,7 @@ $(".saveNote").on("click", function(event) {
             //   clear note box
               $("#noteText").val("");
               $(".modalNote").modal("hide");
-              //$(location).attr("href","/saved");
+              $(location).attr("href","/saved");
           });
         }    
 });

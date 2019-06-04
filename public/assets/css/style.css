@@ -71,21 +71,22 @@
   #btnRead {
     font-weight: bold;
     color: white;
+    text-decoration: none;
   }
 
   .btn-success {
     font-weight: bold;
-    /*margin-left: 10px;*/
   }
 
   /*button states*/
   #scrapeBtn:hover {
+    transition: 0.2s;
     cursor: pointer;
     text-decoration: underline;
     color: #28A745;
     font-weight: bold;
-    }
-    
+  }
+
 /******************** SAVED.HBS STYLES ******************************/
 
   /*empty saved message*/
@@ -101,6 +102,11 @@
   }
 
   /*remove saved article button*/
+  .btn-secondary {
+    font-weight: bold;
+  }
+
+  /*remove saved article button*/
   .btn-danger {
     font-weight: bold;
     margin-left: 10px;
@@ -108,15 +114,15 @@
 
   /*button states*/
   #backButton:hover {
-      color: #28A745;
-      font-weight: bold;
-      text-decoration: underline;
+    transition: 0.2s;
+    color: #28A745;
+    font-weight: bold;
+    text-decoration: underline;
     }
 
-    .btn-primary:hover {
-      border: 1px #707981;
-      background-color: #5C646A;
-    }
+  .btn-secondary:hover {
+    transition: 0.2s;
+  }
   
 /******************** INDEX AND SAVED.HBS SHARED STYLES ******************************/
 
@@ -157,15 +163,9 @@
     padding-bottom: 15px;
   }
 
-
 /******************** MEDIA BREAKS ******************************/
 
 @media (max-width: 780px) {
-
-  /*jumbotron sizing*/
-  jumbotron {
-    height: 200px;
-  }
 
   h5 {
     font-size: 16px;
@@ -181,23 +181,22 @@
 
   /*jumbo size*/
   .jumbotron {
-    height: 250px;
+    height: 200px;
   }
 
-  /*jumbotron text*/
+  .lead {
+    font-size: 15px;
+  }
+
   .display-4 {
     font-family: 'Roboto Slab', bold, serif;
-    font-size: 60px;
+    font-size: 40px;
     margin-bottom: 15px;
-  }
-
-  /*horizontal line*/
-  #jumboLine {
-    display: none;
   }
 
   h5 {
     font-size: 19px;
+    padding-top: 2px;
   }
   #btnRead {
     padding: 10px;

@@ -68,13 +68,14 @@
     font-size: 22px;
   }
 
-  .btn-secondary {
+  #btnRead {
     font-weight: bold;
+    color: white;
   }
 
   .btn-success {
     font-weight: bold;
-    margin-left: 10px;
+    /*margin-left: 10px;*/
   }
 
   /*button states*/
@@ -206,7 +207,5 @@
     padding: 10px;
   }
 }
-
-
 
 /**************************************************/

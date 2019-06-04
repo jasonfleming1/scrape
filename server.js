@@ -214,7 +214,7 @@ app.post("/notes/save/:id", function(req, res) {
     .catch(function(err) {
       res.json(err);
     });
-    res.redirect("/saved");
+    //res.redirect("/saved");
 }); // ==> end post add a note (not working on ui)
 
 // GET delete a note

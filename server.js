@@ -112,7 +112,7 @@ app.get("/scrape", function(req, res) {
       //empty result object
       //console.log(element);
       var result = {};
-
+      console.log(result);
       result.title = $(element)
         .find("a.tease-headline")
         .text()

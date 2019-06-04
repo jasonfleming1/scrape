@@ -229,6 +229,34 @@ app.get("/notes/delete/:id", function(req, res) {
     });
 }); // ==> end get delete a note (not working 404)
 
+//================ NEW NOTES TRY ================
+
+//get article and notes             
+app.get("/articles/:id", function(req, res) {
+  db.Article.findOne({ _id: req.params.id })
+  .populate("note")
+  .then(function(dbArticle) {
+    res.json(dbArticle);
+  })
+  .catch(function(err){
+    res.json(err);
+  });
+}); // ==> end get article and notes
+
+//save and update article's notes
+app.post("/articles/:id", function(req, res){
+  db.Note.create(req.body)
+  .then(function(dbNote) {
+    return db.Article.findOneAndUpdate({ _id: req.params.id }, { note: dbNote.id }, { new: true });
+  })
+  .then(function(dbArticle) {
+    res.json(dbArticle);
+  })
+  .catch(function(err) {
+    res.json(err);
+  });
+}); // ==> end save and update note
+
 //================ SERVER STARTS ================
 
 app.listen(PORT, function() {

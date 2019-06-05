@@ -33,7 +33,7 @@ $(".save").on("click", function() {
     method: "PUT",
     url: "/articles/save/" + thisId
   }).done(function(data) {
-    //$(location).attr("href", "/scraped");
+    location.reload(); //trying a reload
   });
 });
 
@@ -44,7 +44,8 @@ $(".delete").on("click", function() {
     method: "PUT",
     url: "/articles/delete/" + thisId
   }).done(function(data) {
-    $(location).attr("href", "/saved");
+    //$(location).attr("href", "/saved");
+    location.reload(); //trying a reload
   });
 });
 

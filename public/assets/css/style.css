@@ -112,6 +112,11 @@
     margin-left: 10px;
   }
 
+  /*remove saved article button*/
+  .btn-primary {
+    font-weight: bold;
+  }
+
   /*button states*/
   #backButton:hover {
     transition: 0.2s;
@@ -121,6 +126,12 @@
     }
 
   .btn-secondary:hover {
+    transition: 0.2s;
+  }
+  .btn-primary:hover {
+    transition: 0.2s;
+  }
+  .btn-danger:hover {
     transition: 0.2s;
   }
   

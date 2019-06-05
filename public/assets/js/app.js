@@ -33,7 +33,7 @@ $(".save").on("click", function() {
     method: "PUT",
     url: "/articles/save/" + thisId
   }).done(function(data) {
-    $(location).attr("href", "/scraped");
+    //$(location).attr("href", "/scraped");
   });
 });
 

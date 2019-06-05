@@ -1,4 +1,4 @@
 # scrape
 webscraping homework
 
-https://scrapethestrib.herokuapp.com/scraped
+https://scrapethestrib.herokuapp.com/
